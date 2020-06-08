@@ -30,23 +30,23 @@ namespace dip {
 namespace {
 
 template< typename T >
-T dipm__Fraction( T v ) { return v - std::trunc( v ); }
+T dipm_Fraction( T v ) { return v - std::trunc( v ); }
 
 template< typename T >
-T dipm__Reciprocal( T v ) { return v == T( 0 ) ? T( 0 ) : T( 1 ) / v; }
+T dipm_Reciprocal( T v ) { return v == T( 0 ) ? T( 0 ) : T( 1 ) / v; }
 
 template< typename T >
-bool dipm__IsNaN( T v ) { return std::isnan( v ); }
+bool dipm_IsNaN( T v ) { return std::isnan( v ); }
 template< typename T >
-bool dipm__IsNaN( std::complex< T > v ) { return std::isnan( v.real() ) || std::isnan( v.imag() ); }
+bool dipm_IsNaN( std::complex< T > v ) { return std::isnan( v.real() ) || std::isnan( v.imag() ); }
 
 template< typename T >
-bool dipm__IsInf( T v ) { return std::isinf( v ); }
+bool dipm_IsInf( T v ) { return std::isinf( v ); }
 template< typename T >
-bool dipm__IsInf( std::complex< T > v ) { return std::isinf( v.real() ) || std::isinf( v.imag() ); }
+bool dipm_IsInf( std::complex< T > v ) { return std::isinf( v.real() ) || std::isinf( v.imag() ); }
 
 template< typename T >
-bool dipm__IsFinite( T v ) { return !dipm__IsNaN( v ) && !dipm__IsInf( v ); }
+bool dipm_IsFinite( T v ) { return !dipm_IsNaN( v ) && !dipm_IsInf( v ); }
 
 template< typename TPI, typename F >
 class BinScanLineFilter : public Framework::ScanLineFilter {
