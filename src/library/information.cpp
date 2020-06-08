@@ -37,22 +37,22 @@ DIP_EXPORT const LibraryInformation libraryInformation{
 #ifdef _OPENMP
             ", with OpenMP"
 #endif
-#ifdef DIP__EXCEPTIONS_RECORD_STACK_TRACE
+#ifdef DIP_EXCEPTIONS_RECORD_STACK_TRACE
             ", recording stack traces"
 #endif
-#ifdef DIP__ENABLE_ASSERT
+#ifdef DIP_ENABLE_ASSERT
             ", asserts enabled"
 #endif
-#ifdef DIP__ENABLE_UNICODE
+#ifdef DIP_ENABLE_UNICODE
             ", Unicode support"
 #endif
-#ifdef DIP__HAS_ICS
+#ifdef DIP_HAS_ICS
             ", ICS support"
 #endif
-#ifdef DIP__HAS_TIFF
+#ifdef DIP_HAS_TIFF
             ", TIFF support"
 #endif
-#ifdef DIP__HAS_JPEG
+#ifdef DIP_HAS_JPEG
             ", JPEG support"
 #endif
 };

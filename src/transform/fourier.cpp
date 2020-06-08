@@ -27,7 +27,7 @@
 #include "diplib/iterators.h"
 #include "diplib/geometry.h"
 
-#ifdef DIP__HAS_FFTW
+#ifdef DIP_HAS_FFTW
    #ifdef _WIN32
       #define NOMINMAX // windows.h must not define min() and max(), which are conflicting with std::min() and std::max()
    #endif
@@ -142,7 +142,7 @@ class DFTLineFilter : public Framework::SeparableLineFilter {
 
 } // namespace
 
-#ifdef DIP__HAS_FFTW
+#ifdef DIP_HAS_FFTW
 
 namespace {
 
@@ -742,7 +742,7 @@ void PerformFFTW( Image const& in_c, Image& out, UnsignedArray const& outSize, B
 
 } // end anonymous namespace for FFTW functionality
 
-#endif // DIP__HAS_FFTW
+#endif // DIP_HAS_FFTW
 
 void FourierTransform(
       Image const& in,
@@ -806,7 +806,7 @@ void FourierTransform(
 
    Image const in_copy = in; // Make a copy of the header to preserve image in case in == out
 
-#ifdef DIP__HAS_FFTW
+#ifdef DIP_HAS_FFTW
 
    // Determine floating point size and call appropriate work horse
    // NOTE: There is no support for padded output yet, so outSize is not yet passed
@@ -822,7 +822,7 @@ void FourierTransform(
          DIP_THROW( "Unknown float type for FFTW" );
    }
 
-#else // DIP__HAS_FFTW
+#else // DIP_HAS_FFTW
 
    // Determine output data type
    DataType dtype = DataType::SuggestComplex( in.DataType() );
@@ -859,7 +859,7 @@ void FourierTransform(
       out.Copy( tmp );
    }
 
-#endif // DIP__HAS_FFTW
+#endif // DIP_HAS_FFTW
 
    // Set output tensor shape
    out.ReshapeTensor( in_copy.Tensor() );
@@ -895,7 +895,7 @@ dip::uint OptimalFourierTransformSize( dip::uint size ) {
 } // namespace dip
 
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 #include "diplib/random.h"
 
@@ -944,4 +944,4 @@ DOCTEST_TEST_CASE("[DIPlib] testing the DFT function") {
    DOCTEST_CHECK( doctest::Approx( dotest< double >( 105, true )) == 0 );
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST

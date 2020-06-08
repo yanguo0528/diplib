@@ -66,7 +66,7 @@ namespace dip {
 ///
 /// \see dip::UniformRandomGenerator, dip::GaussianRandomGenerator, dip::PoissonRandomGenerator, dip::BinaryRandomGenerator.
 class DIP_NO_EXPORT Random {
-#if defined(__SIZEOF_INT128__) || defined(DIP__ALWAYS_128_PRNG)
+#if defined(__SIZEOF_INT128__) || defined(DIP_ALWAYS_128_PRNG)
       using Engine = pcg64;
 #else
       using Engine = pcg32;

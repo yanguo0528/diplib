@@ -18,7 +18,7 @@
  * limitations under the License.
  */
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 
 #include "diplib/accumulators.h"
@@ -188,7 +188,7 @@ DOCTEST_TEST_CASE("[DIPlib] testing the statistical accumulators") {
 DOCTEST_TEST_CASE("[DIPlib] testing the PRNG") {
    dip::Random rng( 0 );
    bool error = false;
-#if defined(__SIZEOF_INT128__) || defined(DIP__ALWAYS_128_PRNG)
+#if defined(__SIZEOF_INT128__) || defined(DIP_ALWAYS_128_PRNG)
    // 128-bit PRNG has 64-bit output, we expect the following values:
    error |= rng() != 74029666500212977ULL;
    error |= rng() != 8088122161323000979ULL;
@@ -269,7 +269,7 @@ DOCTEST_TEST_CASE("[DIPlib] testing the PRNG") {
    }
    dip::Image FT1 = dip::FourierTransform( img1, { "corner" } );
    dip::Image FT2 = dip::FourierTransform( img2, { "corner" } );
-#ifdef DIP__HAS_FFTW
+#ifdef DIP_HAS_FFTW
    // The FFTW version doesn't yet support real to real conversion, and cannot do an inverse transform starting with real-valued data
    img1 = dip::SquareModulus( FT1 );
    img1.Convert( dip::DT_DCOMPLEX );
@@ -291,4 +291,4 @@ DOCTEST_TEST_CASE("[DIPlib] testing the PRNG") {
    DOCTEST_CHECK( max < norm / 20.0 );
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST

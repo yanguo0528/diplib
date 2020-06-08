@@ -78,7 +78,7 @@ inline std::unique_ptr< Framework::ScanLineFilter > NewBinScanLineFilter( F cons
 
 } // namespace dip
 
-#define DIP__MONADIC_OPERATOR_FLEX( functionName_, functionLambda_, inputDomain_, cost_ ) \
+#define DIP_MONADIC_OPERATOR_FLEX( functionName_, functionLambda_, inputDomain_, cost_ ) \
    void functionName_( Image const& in, Image& out ) { \
       DIP_THROW_IF( !in.DataType().IsA( inputDomain_ ), E::DATA_TYPE_NOT_SUPPORTED ); \
       DataType dtype = DataType::SuggestFlex( in.DataType() ); \
@@ -88,7 +88,7 @@ inline std::unique_ptr< Framework::ScanLineFilter > NewBinScanLineFilter( F cons
             Framework::ScanOption::NoSingletonExpansion + Framework::ScanOption::TensorAsSpatialDim )); \
    }
 
-#define DIP__MONADIC_OPERATOR_FLOAT( functionName_, functionLambda_, inputDomain_, cost_ ) \
+#define DIP_MONADIC_OPERATOR_FLOAT( functionName_, functionLambda_, inputDomain_, cost_ ) \
    void functionName_( Image const& in, Image& out ) { \
       DIP_THROW_IF( !in.DataType().IsA( inputDomain_ ), E::DATA_TYPE_NOT_SUPPORTED ); \
       DataType dtype = DataType::SuggestFloat( in.DataType() ); \
@@ -98,7 +98,7 @@ inline std::unique_ptr< Framework::ScanLineFilter > NewBinScanLineFilter( F cons
             Framework::ScanOption::NoSingletonExpansion + Framework::ScanOption::TensorAsSpatialDim )); \
    }
 
-#define DIP__MONADIC_OPERATOR_FLOAT_WITH_PARAM( functionName_, paramType_, paramName_, functionLambda_, inputDomain_, cost_ ) \
+#define DIP_MONADIC_OPERATOR_FLOAT_WITH_PARAM( functionName_, paramType_, paramName_, functionLambda_, inputDomain_, cost_ ) \
    void functionName_( Image const& in, Image& out, paramType_ paramName_ ) { \
       DIP_THROW_IF( !in.DataType().IsA( inputDomain_ ), E::DATA_TYPE_NOT_SUPPORTED ); \
       DataType dtype = DataType::SuggestFloat( in.DataType() ); \
@@ -108,7 +108,7 @@ inline std::unique_ptr< Framework::ScanLineFilter > NewBinScanLineFilter( F cons
             Framework::ScanOption::NoSingletonExpansion + Framework::ScanOption::TensorAsSpatialDim )); \
    }
 
-#define DIP__MONADIC_OPERATOR_BIN( functionName_, functionLambda_, inputDomain_, defaultValue_ ) \
+#define DIP_MONADIC_OPERATOR_BIN( functionName_, functionLambda_, inputDomain_, defaultValue_ ) \
    void functionName_( Image const& in, Image& out ) { \
       DataType dtype = in.DataType(); \
       if( dtype.IsA( inputDomain_ )) { \
@@ -125,7 +125,7 @@ inline std::unique_ptr< Framework::ScanLineFilter > NewBinScanLineFilter( F cons
       } \
    }
 
-#undef DIP__MONADIC_OPERATORS_PRIVATE
+#undef DIP_MONADIC_OPERATORS_PRIVATE
 #include "diplib/private/monadic_operators.h"
 
 

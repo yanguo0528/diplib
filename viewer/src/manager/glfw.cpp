@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#ifdef DIP__HAS_GLFW
+#ifdef DIP_HAS_GLFW
 
 #include <cstring>
 #include <exception>
@@ -187,4 +187,4 @@ void GLFWManager::getCursorPos(Window *window, int *x, int *y)
 
 }} // namespace dip::viewer
 
-#endif // DIP__HAS_GLFW
+#endif // DIP_HAS_GLFW

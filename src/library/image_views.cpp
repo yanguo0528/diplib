@@ -424,7 +424,7 @@ Image::View::Iterator Image::View::end() const {
 } // namespace dip
 
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 #include "diplib/testing.h"
 
@@ -840,4 +840,4 @@ DOCTEST_TEST_CASE( "[DIPlib] testing dip::Image::View" ) {
    DOCTEST_CHECK_THROWS( viewC = src.At( coords ));
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST

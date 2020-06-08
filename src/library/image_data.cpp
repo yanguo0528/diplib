@@ -757,7 +757,7 @@ CoordinatesComputer Image::IndexToCoordinatesComputer() const {
 } // namespace dip
 
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 #include "diplib/random.h"
 
@@ -913,4 +913,4 @@ DOCTEST_TEST_CASE("[DIPlib] testing dip::Image::MatchStrideOrder") {
    DOCTEST_CHECK( img.TensorStride() == 6 );
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST

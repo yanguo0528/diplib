@@ -584,7 +584,7 @@ Image& Image::Crop( UnsignedArray const& sizes, String const& cropLocation ) {
 } // namespace dip
 
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 
 DOCTEST_TEST_CASE("[DIPlib] testing dip::Image dimension manipulation functions") {
@@ -818,4 +818,4 @@ DOCTEST_TEST_CASE("[DIPlib] testing dip::Image::ReinterpretCast") {
    DOCTEST_CHECK( src.DataType() == dip::DT_SINT8 );
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST

@@ -470,7 +470,7 @@ void ConvolveFT(
    if( dt.IsBinary() ) {
       dt = DT_SFLOAT; // let's not go there...
    }
-#ifdef DIP__HAS_FFTW
+#ifdef DIP_HAS_FFTW
    if( !outSpatial ) { // write directly into out only if we don't need to inverse transform the output
 #else
    if( !outSpatial || !real ) { // write directly into out if out is not real-valued
@@ -559,7 +559,7 @@ void GeneralConvolution(
 } // namespace dip
 
 
-#ifdef DIP__ENABLE_DOCTEST
+#ifdef DIP_ENABLE_DOCTEST
 #include "doctest.h"
 #include "diplib/statistics.h"
 #include "diplib/generation.h"
@@ -696,4 +696,4 @@ DOCTEST_TEST_CASE("[DIPlib] testing ConvolveFT") {
    DOCTEST_CHECK( filtFT.At( 0 ) == 5.0 );
 }
 
-#endif // DIP__ENABLE_DOCTEST
+#endif // DIP_ENABLE_DOCTEST
